@@ -7,10 +7,27 @@
 </head>
 <body>
     <script>
-        ar = [123,'d',"안녕하세요"]
+        ar = [123,'d',"안녕","<img src=1.png>"]
         console.log(ar)
         console.log(ar[0])
-        console.log(ar[0][1])
+        document.write(ar)
+        document.write('<br>')
+        k = ar.pop()
+        document.write(k)
+        document.write('<br>')
+        document.write(ar)
+        document.write('<br>')
+        ar.push("asdf")
+        document.write(ar)
+        document.write('<br>')
+        k=ar.shift()
+        document.write(k)
+        document.write('<br>')
+        document.write(ar)
+        document.write('<br>')
+        ar.unshift(100)
+        document.write(ar)
+        document.write('<br>')
 
     </script>
 </body>
