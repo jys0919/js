@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h1{
+        color: aliceblue;
+    }
+    .menuimg{
+        width: 120px;
+        height: 150px;
+    }
+    .st1{
+        width: 200px;
+        height: 20px;
+        font-size: 20px;
+        color:rgb(255, 255, 255);
+        text-align: center;
+        border-width: 1px;
+        border-color: rgb(27, 60, 52);
+        background-color: rgb(27, 60, 52)
+    }
+    body{
+        background-color:rgb(27, 60, 52)
+    }
+
+</style>
+<body>
+    <table border=1 >
+        <tr align="center">
+            <td colspan="4"><h1>스타벅스 메뉴판</h1></td>
+        </tr>
+        <tr align="center">
+            <td><img src="icea.png" class="menuimg" id="aaimg"></td>
+            <td rowspan="2" width="130px" align="left">
+                <input type="checkbox" id="aa_shot" onclick="aa_updatePrice('aa_shot')">샷추가<br>
+                <input type="checkbox" id="aa_syrup" onclick="aa_updatePrice('aa_syrup')">시럽<br>
+                <input type="checkbox" id="aa_milk" onclick="aa_updatePrice('aa_milk')">우유<br>
+                <input type="checkbox" id="aa_whipped" onclick="aa_updatePrice('aa_whipped')">휘핑크림<br>
+                <input type="checkbox" id="aa_drizzle" onclick="aa_updatePrice('aa_drizzle')">드리즐<br>                
+            </td>
+            <td><img src="icelt.png" class="menuimg" id="ltimg"></td>
+            <td rowspan="4" width="130px" align="left">
+                <input type="checkbox" id="lt_shot" onclick="lt_updatePrice('lt_shot')">샷추가<br>
+                <input type="checkbox" id="lt_syrup" onclick="lt_updatePrice('lt_syrup')">시럽<br>
+                <input type="checkbox" id="lt_milk" onclick="lt_updatePrice('lt_milk')">우유<br>
+                <input type="checkbox" id="lt_whipped" onclick="lt_updatePrice('lt_whipped')">휘핑크림<br>
+                <input type="checkbox" id="lt_drizzle" onclick="lt_updatePrice('lt_drizzle')">드리즐<br>
+            </td>
+        </tr>
+        <tr align="center">
+            <td><input type="text" value="아메리카노(ICE)" id="aamenu" class="st1"></td>
+            <td><input type="text" value="카페라떼(ICE)" id="ltmenu" class="st1"></td>
+        </tr>
+        <tr align="center">
+            <td><input type="radio" name = "aa_type" checked="checked" value="ice" onclick="aaswImg('ice')"><font color='darkblue'>ICE</font>
+                <input type="radio" name = "aa_type" value="hot" onclick="aaswImg('hot')"><font color='red'>HOT</font></td>
+                <td rowspan="2"><button onclick="down()"><-</button>
+                    <input type="text" value="1" style="width: 20px;" id="aa_cnt">
+                    <button onclick="up()">-></button></td>
+                <td><input type="radio" name = "lt_type" checked="checked" value="ice" onclick="ltswImg('ice')"><font color='darkblue'>ICE</font>
+                    <input type="radio" name = "lt_type" value="hot" onclick="ltswImg('hot')"><font color='red'>HOT</font></td></td>
+        </tr>
+        <tr align="center">
+            <td><input type="text" value="5300" id="aacash" class="st1"></td>
+            <td><input type="text" value="5500" id="ltcash" class="st1"></td>
+        </tr>
+        <tr align="center">
+            <td><img src="icecm.png" class="menuimg" id="cmimg"></td>
+            <td rowspan="4" width="130px" align="left">
+                <input type="checkbox" id="cm_shot" onclick="cm_updatePrice('cm_shot')">샷추가<br>
+                <input type="checkbox" id="cm_syrup" onclick="cm_updatePrice('cm_syrup')">시럽<br>
+                <input type="checkbox" id="cm_milk" onclick="cm_updatePrice('cm_milk')">우유<br>
+                <input type="checkbox" id="cm_whipped" onclick="cm_updatePrice('cm_whipped')">휘핑크림<br>
+                <input type="checkbox" id="cm_drizzle" onclick="cm_updatePrice('cm_drizzle')">드리즐<br>
+
+            </td>
+            <td><img src="iceuj.png" class="menuimg" id="ujimg"></td>
+            <td rowspan="4" width="130px" align="left">
+                <input type="checkbox" id="uj_syrup" onclick="uj_updatePrice('uj_syrup')">시럽<br>
+                <input type="checkbox" id="uj_sparkling" onclick="uj_updatePrice('uj_sparkling')">스파클링<br>
+            </td>
+        </tr>
+        <tr align="center">
+            <td><input type="text" value="마키아또(ICE)" id="cmmenu" class="st1"></td>
+            <td><input type="text" value="유자민트티(ICE)" id="ujmenu" class="st1"></td>
+        </tr>
+        <tr align="center">
+            <td><input type="radio" name = "cm_type" checked="checked" value="ice" onclick="cmswImg('ice')"><font color='darkblue'>ICE</font>
+                <input type="radio" name = "cm_type" value="hot" onclick="cmswImg('hot')"><font color='red'>HOT</font></td>
+                <td><input type="radio" name = "uj_type" checked="checked" value="ice" onclick="ujswImg('ice')"><font color='darkblue'>ICE</font>
+                    <input type="radio" name = "uj_type" value="hot" onclick="ujswImg('hot')"><font color='red'>HOT</font></td>
+        </tr>
+        <tr align="center">
+            <td><input type="text" value="5700" id="cmcash" class="st1"></td>
+            <td><input type="text" value="5900" id="ujcash" class="st1"></td>
+        </tr>
+        <tr align="center">
+            <td><img src="icejm.png" class="menuimg" id="jmimg"></td>
+            <td rowspan="4" width="130px" align="left">
+                <input type="checkbox" id="jm_syrup" onclick="jm_updatePrice('jm_syrup')">시럽<br>
+                <input type="checkbox" id="jm_sparkling" onclick="jm_updatePrice('jm_sparkling')">스파클링<br>
+            </td>
+            <td><img src="icekm.png" class="menuimg" id="kmimg"></td>
+            <td rowspan="4" width="130px" align="left">
+                <input type="checkbox" id="km_syrup" onclick="km_updatePrice('km_syrup')">시럽<br>
+                <input type="checkbox" id="km_sparkling" onclick="km_updatePrice('km_sparkling')">스파클링<br>
+            </td>
+        </tr>
+        <tr align="center">
+            <td><input type="text" value="자몽허니 블랙티(ICE)" id="jmmenu" class="st1"></td>
+            <td><input type="text" value="캐모마일티(ICE)" id="kmmenu" class="st1"></td>
+        </tr>
+        <tr align="center">
+            <td><input type="radio" name = "jm_type" checked="checked" value="ice" onclick="jmswImg('ice')"><font color='darkblue'>ICE</font>
+                <input type="radio" name = "jm_type" value="hot" onclick="jmswImg('hot')"><font color='red'>HOT</font></td>
+                <td><input type="radio" name = "km_type" checked="checked" value="ice" onclick="kmswImg('ice')"><font color='darkblue'>ICE</font>
+                    <input type="radio" name = "km_type" value="hot" onclick="kmswImg('hot')"><font color='red'>HOT</font></td>
+        </tr>
+        <tr align="center">
+            <td><input type="text" value="5900" id="jmcash" class="st1"></td>
+            <td><input type="text" value="5900" id="kmcash" class="st1"></td>
+        </tr>
+    </table>
+    <script>
+        function up(){
+            cnt = Number(aa_cnt.value)
+            cnt+=1
+            aa_cnt.value = cnt
+            baseCash = Number(document.getElementById("aacash").value)
+            baseCash += baseCash
+            document.getElementById("aacash").value = baseCash
+        }
+        function down(){
+            cnt = Number(aa_cnt.value)
+            cnt-=1
+            if(cnt <= 0){
+                cnt = 0 
+            }
+            aa_cnt.value = cnt
+            baseCash = Number(document.getElementById("aacash").value)
+            baseCash -= baseCash
+            document.getElementById("aacash").value = baseCash
+        }
+        function aa_updatePrice(aa_chk){
+            chk = aa_chk
+            baseCash = Number(document.getElementById("aacash").value)
+            addPrice = 0
+            if(chk == 'aa_shot'){
+                if(document.getElementById("aa_shot").checked) addPrice += 500
+                else if(!document.getElementById("aa_shot").checked) addPrice -= 500
+            }
+            else if(chk == 'aa_syrup'){
+                if(document.getElementById("aa_syrup").checked) addPrice += 700
+                else if(!document.getElementById("aa_syrup").checked) addPrice -= 700
+            }
+            else if(chk == 'aa_milk'){
+                if(document.getElementById("aa_milk").checked) addPrice += 300
+                else if(!document.getElementById("aa_milk").checked) addPrice -= 300
+            }
+            else if(chk == 'aa_whipped'){
+                if(document.getElementById("aa_whipped").checked) addPrice += 500
+                else if(!document.getElementById("aa_whipped").checked) addPrice -= 500
+            }
+            else if(chk == 'aa_drizzle'){
+                if(document.getElementById("aa_drizzle").checked) addPrice += 1000
+                else if(!document.getElementById("aa_drizzle").checked) addPrice -= 1000
+            }
+            
+            document.getElementById("aacash").value = baseCash + addPrice
+        }
+        function lt_updatePrice(lt_chk){
+            chk = lt_chk
+            baseCash = Number(document.getElementById("ltcash").value)
+            addPrice = 0
+            if(chk == 'lt_shot'){
+                if(document.getElementById("lt_shot").checked) addPrice += 500
+                else if(!document.getElementById("lt_shot").checked) addPrice -= 500
+            }
+            else if(chk == 'lt_syrup'){
+                if(document.getElementById("lt_syrup").checked) addPrice += 700
+                else if(!document.getElementById("lt_syrup").checked) addPrice -= 700
+            }
+            else if(chk == 'lt_milk'){
+                if(document.getElementById("lt_milk").checked) addPrice += 300
+                else if(!document.getElementById("lt_milk").checked) addPrice -= 300
+            }
+            else if(chk == 'lt_whipped'){
+                if(document.getElementById("lt_whipped").checked) addPrice += 500
+                else if(!document.getElementById("lt_whipped").checked) addPrice -= 500
+            }
+            else if(chk == 'lt_drizzle'){
+                if(document.getElementById("lt_drizzle").checked) addPrice += 1000
+                else if(!document.getElementById("lt_drizzle").checked) addPrice -= 1000
+            }
+            
+            document.getElementById("ltcash").value = baseCash + addPrice
+        }
+        function cm_updatePrice(cm_chk){
+            chk = cm_chk
+            baseCash = Number(document.getElementById("cmcash").value)
+            addPrice = 0
+            if(chk == 'cm_shot'){
+                if(document.getElementById("cm_shot").checked) addPrice += 500
+                else if(!document.getElementById("cm_shot").checked) addPrice -= 500
+            }
+            else if(chk == 'cm_syrup'){
+                if(document.getElementById("cm_syrup").checked) addPrice += 700
+                else if(!document.getElementById("cm_syrup").checked) addPrice -= 700
+            }
+            else if(chk == 'cm_milk'){
+                if(document.getElementById("cm_milk").checked) addPrice += 300
+                else if(!document.getElementById("cm_milk").checked) addPrice -= 300
+            }
+            else if(chk == 'cm_whipped'){
+                if(document.getElementById("cm_whipped").checked) addPrice += 500
+                else if(!document.getElementById("cm_whipped").checked) addPrice -= 500
+            }
+            else if(chk == 'cm_drizzle'){
+                if(document.getElementById("cm_drizzle").checked) addPrice += 1000
+                else if(!document.getElementById("cm_drizzle").checked) addPrice -= 1000
+            }
+            
+            document.getElementById("cmcash").value = baseCash + addPrice
+        }
+        function uj_updatePrice(uj_chk){
+            chk = uj_chk
+            baseCash = Number(document.getElementById("ujcash").value)
+            addPrice = 0         
+            if(chk == 'uj_syrup'){
+                if(document.getElementById("uj_syrup").checked) addPrice += 700
+                else if(!document.getElementById("uj_syrup").checked) addPrice -= 700
+            }
+            else if(chk == 'uj_sparkling'){
+                if(document.getElementById("uj_sparkling").checked) addPrice += 1000
+                else if(!document.getElementById("uj_sparkling").checked) addPrice -= 1000
+            }
+            document.getElementById("ujcash").value = baseCash + addPrice
+        }
+        function jm_updatePrice(jm_chk){
+            chk = jm_chk
+            baseCash = Number(document.getElementById("jmcash").value)
+            addPrice = 0         
+            if(chk == 'jm_syrup'){
+                if(document.getElementById("jm_syrup").checked) addPrice += 700
+                else if(!document.getElementById("jm_syrup").checked) addPrice -= 700
+            }
+            else if(chk == 'jm_sparkling'){
+                if(document.getElementById("jm_sparkling").checked) addPrice += 1000
+                else if(!document.getElementById("jm_sparkling").checked) addPrice -= 1000
+            }
+            document.getElementById("jmcash").value = baseCash + addPrice
+        }
+        function km_updatePrice(km_chk){
+            chk = km_chk
+            baseCash = Number(document.getElementById("kmcash").value)
+            addPrice = 0         
+            if(chk == 'km_syrup'){
+                if(document.getElementById("km_syrup").checked) addPrice += 700
+                else if(!document.getElementById("km_syrup").checked) addPrice -= 700
+            }
+            else if(chk == 'km_sparkling'){
+                if(document.getElementById("km_sparkling").checked) addPrice += 1000
+                else if(!document.getElementById("km_sparkling").checked) addPrice -= 1000
+            }
+            document.getElementById("kmcash").value = baseCash + addPrice
+        }
+        function aaswImg(aa_Type){
+            var Type = aa_Type
+            money = Number(document.getElementById("aacash").value)
+            if(Type=="ice"){
+                document.getElementById("aaimg").src="icea.png"
+                document.getElementById("aamenu").value="아메리카노(ICE)"
+                document.getElementById("aacash").value= money+=500
+            }
+            else if(Type =="hot"){
+                document.getElementById("aaimg").src="hota.png"
+                document.getElementById("aamenu").value="아메리카노(HOT)"
+                document.getElementById("aacash").value= money-=500
+            }
+        }
+        function ltswImg(lt_Type){
+            var Type = lt_Type
+            money = Number(document.getElementById("ltcash").value)
+            if(Type=="ice"){
+                document.getElementById("ltimg").src="icelt.png"
+                document.getElementById("ltmenu").value="카페라떼(ICE)"
+                document.getElementById("ltcash").value= money+=500
+            }
+            else if(Type =="hot"){
+                document.getElementById("ltimg").src="hotlt.png"
+                document.getElementById("ltmenu").value="카페라떼(HOT)"
+                document.getElementById("ltcash").value= money-=500
+            }
+        }
+        function cmswImg(cm_Type){
+            var Type = cm_Type
+            money = Number(document.getElementById("cmcash").value)
+            if(Type=="ice"){
+                document.getElementById("cmimg").src="icecm.png"
+                document.getElementById("cmmenu").value="마키아또(ICE)"
+                document.getElementById("cmcash").value= money+=500
+            }
+            else if(Type =="hot"){
+                document.getElementById("cmimg").src="hotcm.png"
+                document.getElementById("cmmenu").value="마키아또(HOT)"
+                document.getElementById("cmcash").value= money-=500
+            }
+        }
+        function ujswImg(uj_Type){
+            var Type = uj_Type
+            money = Number(document.getElementById("ujcash").value)
+            if(Type=="ice"){
+                document.getElementById("ujimg").src="iceuj.png"
+                document.getElementById("ujmenu").value="유자민트티(ICE)"
+                document.getElementById("ujcash").value= money+=500
+            }
+            else if(Type =="hot"){
+                document.getElementById("ujimg").src="hotuj.png"
+                document.getElementById("ujmenu").value="유자민트티(HOT)"
+                document.getElementById("ujcash").value= money-=500
+            }
+        }
+        function jmswImg(jm_Type){
+            var Type = jm_Type
+            money = Number(document.getElementById("jmcash").value)
+            if(Type=="ice"){
+                document.getElementById("jmimg").src="icejm.png"
+                document.getElementById("jmmenu").value="자몽허니 블랙티(ICE)"
+                document.getElementById("jmcash").value= money+=500
+            }
+            else if(Type =="hot"){
+                document.getElementById("jmimg").src="hotjm.png"
+                document.getElementById("jmmenu").value="자몽허니 블랙티(HOT)"
+                document.getElementById("jmcash").value= money-=500
+            }
+        }
+        function kmswImg(km_Type){
+            var Type = km_Type
+            money = Number(document.getElementById("kmcash").value)
+            if(Type=="ice"){
+                document.getElementById("kmimg").src="icekm.png"
+                document.getElementById("kmmenu").value="캐모마일티(ICE)"
+                document.getElementById("kmcash").value= money+=500
+            }
+            else if(Type =="hot"){
+                document.getElementById("kmimg").src="hotkm.png"
+                document.getElementById("kmmenu").value="캐모마일티(HOT)"
+                document.getElementById("kmcash").value= money-=500
+            }
+        }
+    </script>
+</body>
+
+</html>
